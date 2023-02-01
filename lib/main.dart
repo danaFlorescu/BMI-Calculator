@@ -41,7 +41,20 @@ class _InputPageState extends State<InputPage> {
           Row(
             children: [
               Expanded(
-                child: ReusableCard(),
+                child: ReusableCard(
+                  cardChild: IconAndTextForReusableCards(
+                    iconText: 'Male',
+                    gender: FontAwesomeIcons.mars,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: ReusableCard(
+                  cardChild: IconAndTextForReusableCards(
+                    iconText: 'Female',
+                    gender: FontAwesomeIcons.venus,
+                  ),
+                ),
               ),
             ],
           ),
@@ -52,9 +65,9 @@ class _InputPageState extends State<InputPage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  const ReusableCard({
-    super.key,
-  });
+  ReusableCard({required this.cardChild});
+
+  final Widget cardChild;
 
   @override
   Widget build(BuildContext context) {
@@ -64,22 +77,34 @@ class ReusableCard extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
       ),
-      child: Column(
-        children: [
-          FaIcon(
-            FontAwesomeIcons.mars,
-            color: Colors.black,
-            size: 50.0,
+      child: cardChild,
+    );
+  }
+}
+
+class IconAndTextForReusableCards extends StatelessWidget {
+  IconAndTextForReusableCards({required this.iconText, required this.gender});
+
+  final String iconText;
+  final IconData? gender;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        FaIcon(
+          gender,
+          color: Colors.black,
+          size: 50.0,
+        ),
+        Text(
+          iconText,
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Colors.black54,
           ),
-          Text(
-            'MALE',
-            style: TextStyle(
-              fontSize: 18.0,
-              color: Colors.black54,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
