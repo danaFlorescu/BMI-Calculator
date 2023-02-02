@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'constants.dart';
 
 void main() => runApp(BMICalculator());
 
@@ -58,6 +59,64 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           ),
+          Row(
+            children: [
+              Expanded(
+                child: ReusableCard(
+                  cardChild: Column(
+                    children: [
+                      Text(
+                        'HEIGHT',
+                        style: textStyleForReusableCards,
+                      ),
+                      Text(
+                        '184cm',
+                        style: textStyleForReusableCardsBig,
+                      ),
+                      Slider(
+                        min: 100,
+                        max: 220,
+                        value: 184,
+                        onChanged: (context) {},
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: ReusableCard(
+                  cardChild: Column(
+                    children: [
+                      Text(
+                        'WEIGHT',
+                        style: textStyleForReusableCards,
+                      ),
+                      Text('63', style: textStyleForReusableCardsBig),
+                      FloatingActionButton(onPressed: () {}),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: ReusableCard(
+                  cardChild: Column(
+                    children: [
+                      Text(
+                        'AGE',
+                        style: textStyleForReusableCards,
+                      ),
+                      Text('20', style: textStyleForReusableCardsBig),
+                      FloatingActionButton(onPressed: () {}),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -99,10 +158,7 @@ class IconAndTextForReusableCards extends StatelessWidget {
         ),
         Text(
           iconText,
-          style: TextStyle(
-            fontSize: 18.0,
-            color: Colors.black54,
-          ),
+          style: textStyleForReusableCards,
         ),
       ],
     );
