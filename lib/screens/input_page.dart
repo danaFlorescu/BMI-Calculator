@@ -4,6 +4,7 @@ import 'package:bmi_calculator/components/icon_and_text_for_reusable_cards.dart'
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/round_button.dart';
+import 'package:bmi_calculator/components/bottom_button.dart';
 
 enum Gender {
   male,
@@ -218,19 +219,7 @@ class _InputPageState extends State<InputPage> {
           Row(
             children: [
               Expanded(
-                child: Container(
-                  child: Center(
-                    child: Text(
-                      'CALCULATE',
-                      style: kLargeButtonTextStyle,
-                    ),
-                  ),
-                  color: colorBottomContainerColor,
-                  margin: EdgeInsets.only(top: 10.0),
-                  padding: EdgeInsets.only(bottom: 20.0),
-                  width: double.infinity,
-                  height: kBottomContainerHeight,
-                ),
+                child: BottomButton(),
               ),
             ],
           )
