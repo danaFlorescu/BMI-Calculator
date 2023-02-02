@@ -11,10 +11,11 @@ class IconAndTextForReusableCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FaIcon(
           gender,
-          color: Colors.black,
+          color: Colors.white,
           size: 50.0,
         ),
         Text(
