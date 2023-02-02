@@ -24,10 +24,7 @@ class ResultsPage extends StatelessWidget {
           Expanded(
             child: Text(
               'Your result',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 55.0,
-                  fontWeight: FontWeight.bold),
+              style: resultsPageTitleStyle,
             ),
           ),
           Expanded(
@@ -38,27 +35,20 @@ class ResultsPage extends StatelessWidget {
                 children: [
                   Text(
                     resultText.toUpperCase(),
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: resultTextStyle,
                   ),
                   Text(
                     bmiResult,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 100.0,
-                    ),
+                    style: bmiStyle,
                   ),
                   Text(
                     interpretation,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20.0),
+                    style: interpretationStyle,
                   ),
                 ],
               ),
-              colour: kActiveCardColour,
+              colour: activeCardColour,
               onPress: () {},
             ),
           ),

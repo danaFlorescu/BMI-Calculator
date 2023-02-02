@@ -46,8 +46,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colour: selectedGender == Gender.male
-                        ? kActiveCardColour
-                        : kInactiveCardColour,
+                        ? activeCardColour
+                        : inactiveCardColour,
                     cardChild: IconAndTextForReusableCards(
                       iconText: 'MALE',
                       gender: FontAwesomeIcons.mars,
@@ -62,8 +62,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colour: selectedGender == Gender.female
-                        ? kActiveCardColour
-                        : kInactiveCardColour,
+                        ? activeCardColour
+                        : inactiveCardColour,
                     cardChild: IconAndTextForReusableCards(
                       iconText: 'FEMALE',
                       gender: FontAwesomeIcons.venus,
@@ -79,7 +79,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     onPress: () {},
-                    colour: kActiveCardColour,
+                    colour: activeCardColour,
                     cardChild: Column(
                       children: [
                         Text(
@@ -136,7 +136,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     onPress: () {},
-                    colour: kActiveCardColour,
+                    colour: activeCardColour,
                     cardChild: Column(
                       children: [
                         Text(
@@ -177,7 +177,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     onPress: () {},
-                    colour: kActiveCardColour,
+                    colour: activeCardColour,
                     cardChild: Column(
                       children: [
                         Text(

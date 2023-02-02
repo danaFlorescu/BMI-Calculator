@@ -15,14 +15,14 @@ class BottomButton extends StatelessWidget {
         child: Center(
           child: Text(
             textOfTheButton,
-            style: kLargeButtonTextStyle,
+            style: largeButtonTextStyle,
           ),
         ),
         color: colorBottomContainerColor,
         margin: EdgeInsets.only(top: 10.0),
         padding: EdgeInsets.only(bottom: 20.0),
         width: double.infinity,
-        height: kBottomContainerHeight,
+        height: bottomContainerHeight,
       ),
     );
   }
