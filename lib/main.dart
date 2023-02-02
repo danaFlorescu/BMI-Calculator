@@ -78,9 +78,20 @@ class _InputPageState extends State<InputPage> {
                           'HEIGHT',
                           style: textStyleForReusableCards,
                         ),
-                        Text(
-                          '184cm',
-                          style: textStyleForReusableCardsBig,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            Text(
+                              height.toString(),
+                              style: textStyleForReusableCardsBig,
+                            ),
+                            Text(
+                              'cm',
+                              style: textStyleForReusableCards,
+                            )
+                          ],
                         ),
                         SliderTheme(
                           data: SliderTheme.of(context).copyWith(
@@ -147,26 +158,24 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    child: Center(
-                      child: Text(
-                        'CALCULATE',
-                        style: kLargeButtonTextStyle,
-                      ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      'CALCULATE',
+                      style: kLargeButtonTextStyle,
                     ),
-                    color: Colors.pink,
-                    margin: EdgeInsets.only(top: 10.0),
-                    padding: EdgeInsets.only(bottom: 20.0),
-                    width: double.infinity,
-                    height: kBottomContainerHeight,
                   ),
+                  color: colorBottomContainerColor,
+                  margin: EdgeInsets.only(top: 10.0),
+                  padding: EdgeInsets.only(bottom: 20.0),
+                  width: double.infinity,
+                  height: kBottomContainerHeight,
                 ),
-              ],
-            ),
+              ),
+            ],
           )
         ],
       ),
