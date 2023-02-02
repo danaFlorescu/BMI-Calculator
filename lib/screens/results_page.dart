@@ -27,17 +27,28 @@ class ResultsPage extends StatelessWidget {
             flex: 7,
             child: ReusableCard(
               cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('OVERWEIGHT'),
+                  Text(
+                    'OVERWEIGHT',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   Text(
                     '23.7',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 87.0,
+                      fontSize: 100.0,
                     ),
                   ),
                   Text(
-                      'You have a higher than normal body weight. Try to exercise more'),
+                    'You have a higher than normal body weight. Try to exercise more',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20.0),
+                  ),
                 ],
               ),
               colour: kActiveCardColour,
