@@ -4,7 +4,14 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({Key? key}) : super(key: key);
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
+  ResultsPage(
+      {required this.bmiResult,
+      required this.resultText,
+      required this.interpretation});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,7 @@ class ResultsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    'OVERWEIGHT',
+                    resultText.toUpperCase(),
                     style: TextStyle(
                       color: Colors.green,
                       fontSize: 24.0,
@@ -38,14 +45,14 @@ class ResultsPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '23.7',
+                    bmiResult,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 100.0,
                     ),
                   ),
                   Text(
-                    'You have a higher than normal body weight. Try to exercise more',
+                    interpretation,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20.0),
                   ),
@@ -58,7 +65,12 @@ class ResultsPage extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: BottomButton(),
+                child: BottomButton(
+                  textOfTheButton: 'RE-CALCULATE',
+                  onTapAction: () {
+                    Navigator.pop(context);
+                  },
+                ),
               ),
             ],
           )

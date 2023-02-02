@@ -2,24 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:bmi_calculator/constants.dart';
 
 class BottomButton extends StatelessWidget {
-  const BottomButton({
-    super.key,
-  });
+  BottomButton({required this.textOfTheButton, required this.onTapAction});
+
+  final String textOfTheButton;
+  final VoidCallback onTapAction;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(
-          'CALCULATE',
-          style: kLargeButtonTextStyle,
+    return GestureDetector(
+      onTap: onTapAction,
+      child: Container(
+        child: Center(
+          child: Text(
+            textOfTheButton,
+            style: kLargeButtonTextStyle,
+          ),
         ),
+        color: colorBottomContainerColor,
+        margin: EdgeInsets.only(top: 10.0),
+        padding: EdgeInsets.only(bottom: 20.0),
+        width: double.infinity,
+        height: kBottomContainerHeight,
       ),
-      color: colorBottomContainerColor,
-      margin: EdgeInsets.only(top: 10.0),
-      padding: EdgeInsets.only(bottom: 20.0),
-      width: double.infinity,
-      height: kBottomContainerHeight,
     );
   }
 }
