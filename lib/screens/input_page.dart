@@ -3,6 +3,7 @@ import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:bmi_calculator/components/icon_and_text_for_reusable_cards.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:bmi_calculator/components/round_button.dart';
 
 enum Gender {
   male,
@@ -18,7 +19,8 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   int height = 180;
-  //Color color = kActiveCardColour;
+  int weight = 63;
+  int age = 20;
   Gender selectedGender = Gender.male;
 
   @override
@@ -138,8 +140,33 @@ class _InputPageState extends State<InputPage> {
                           'WEIGHT',
                           style: textStyleForReusableCards,
                         ),
-                        Text('63', style: textStyleForReusableCardsBig),
-                        FloatingActionButton(onPressed: () {}),
+                        Text(weight.toString(),
+                            style: textStyleForReusableCardsBig),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    weight--;
+                                  },
+                                );
+                              },
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                })
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -154,8 +181,33 @@ class _InputPageState extends State<InputPage> {
                           'AGE',
                           style: textStyleForReusableCards,
                         ),
-                        Text('20', style: textStyleForReusableCardsBig),
-                        FloatingActionButton(onPressed: () {}),
+                        Text(age.toString(),
+                            style: textStyleForReusableCardsBig),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    age--;
+                                  },
+                                );
+                              },
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                })
+                          ],
+                        )
                       ],
                     ),
                   ),
