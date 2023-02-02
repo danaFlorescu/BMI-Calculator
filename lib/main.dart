@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
+import 'components/reusable_card.dart';
+import 'components/icon_and_text_for_reusable_cards.dart';
 
 void main() => runApp(BMICalculator());
 
@@ -37,130 +39,114 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: ReusableCard(
-                  cardChild: IconAndTextForReusableCards(
-                    iconText: 'Male',
-                    gender: FontAwesomeIcons.mars,
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    cardChild: IconAndTextForReusableCards(
+                      iconText: 'Male',
+                      gender: FontAwesomeIcons.mars,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: ReusableCard(
-                  cardChild: IconAndTextForReusableCards(
-                    iconText: 'Female',
-                    gender: FontAwesomeIcons.venus,
+                Expanded(
+                  child: ReusableCard(
+                    cardChild: IconAndTextForReusableCards(
+                      iconText: 'Female',
+                      gender: FontAwesomeIcons.venus,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: ReusableCard(
-                  cardChild: Column(
-                    children: [
-                      Text(
-                        'HEIGHT',
-                        style: textStyleForReusableCards,
-                      ),
-                      Text(
-                        '184cm',
-                        style: textStyleForReusableCardsBig,
-                      ),
-                      Slider(
-                        min: 100,
-                        max: 220,
-                        value: 184,
-                        onChanged: (context) {},
-                      ),
-                    ],
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    cardChild: Column(
+                      children: [
+                        Text(
+                          'HEIGHT',
+                          style: textStyleForReusableCards,
+                        ),
+                        Text(
+                          '184cm',
+                          style: textStyleForReusableCardsBig,
+                        ),
+                        Slider(
+                          min: 100,
+                          max: 220,
+                          value: 184,
+                          onChanged: (context) {},
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: ReusableCard(
-                  cardChild: Column(
-                    children: [
-                      Text(
-                        'WEIGHT',
-                        style: textStyleForReusableCards,
-                      ),
-                      Text('63', style: textStyleForReusableCardsBig),
-                      FloatingActionButton(onPressed: () {}),
-                    ],
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    cardChild: Column(
+                      children: [
+                        Text(
+                          'WEIGHT',
+                          style: textStyleForReusableCards,
+                        ),
+                        Text('63', style: textStyleForReusableCardsBig),
+                        FloatingActionButton(onPressed: () {}),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: ReusableCard(
-                  cardChild: Column(
-                    children: [
-                      Text(
-                        'AGE',
-                        style: textStyleForReusableCards,
-                      ),
-                      Text('20', style: textStyleForReusableCardsBig),
-                      FloatingActionButton(onPressed: () {}),
-                    ],
+                Expanded(
+                  child: ReusableCard(
+                    cardChild: Column(
+                      children: [
+                        Text(
+                          'AGE',
+                          style: textStyleForReusableCards,
+                        ),
+                        Text('20', style: textStyleForReusableCardsBig),
+                        FloatingActionButton(onPressed: () {}),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    child: Center(
+                      child: Text(
+                        'CALCULATE',
+                        style: kLargeButtonTextStyle,
+                      ),
+                    ),
+                    color: Colors.pink,
+                    margin: EdgeInsets.only(top: 10.0),
+                    padding: EdgeInsets.only(bottom: 20.0),
+                    width: double.infinity,
+                    height: kBottomContainerHeight,
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
-    );
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-  ReusableCard({required this.cardChild});
-
-  final Widget cardChild;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: cardChild,
-    );
-  }
-}
-
-class IconAndTextForReusableCards extends StatelessWidget {
-  IconAndTextForReusableCards({required this.iconText, required this.gender});
-
-  final String iconText;
-  final IconData? gender;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        FaIcon(
-          gender,
-          color: Colors.black,
-          size: 50.0,
-        ),
-        Text(
-          iconText,
-          style: textStyleForReusableCards,
-        ),
-      ],
     );
   }
 }
